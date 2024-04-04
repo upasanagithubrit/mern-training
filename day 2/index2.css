@@ -1,0 +1,157 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* width=border(l&r)+content+padding; */
+}
+/* .parent{
+    background-color: chartreuse;
+margin: 16px;
+    padding: 16px; 
+    border: 2px solid red; 
+    width: 40px;
+    overflow: hidden;
+     box-sizing: border-box; 
+} */
+
+/* .heading{
+    padding: 16px 16px;
+    margin: 32px;
+    border: 2px dotted red;
+} */
+
+
+/* .parent p{
+    background-color: blueviolet;
+    width: fit-content;
+}
+span{
+    margin: 10px;
+    padding: 10px;
+    background-color: aqua;
+
+
+} */
+
+/* .heading
+{
+    background-color: aqua;
+    text-align: center;
+    width: 200px;
+    margin: 0 0 0 auto;
+} */
+
+/* p{
+    background-color: aqua;
+} */
+
+/* #p1{
+    background-color: blueviolet;
+} */
+
+/* .p3{
+    background-color: chartreuse;
+}
+
+.p2{
+    background-color: chocolate;
+}
+ */
+
+
+ /* div{
+    text-align: center;
+   
+ }
+ img{
+    height: 400px;
+ } */
+
+ /* .parent{
+    font-size: 32px;
+ } */
+
+ /* body{
+    width: 100vh;
+    height: 100vh;
+    background-color: blueviolet;
+ } */
+ /* .child{
+    background-color: aqua;
+
+    
+ }
+  */
+
+  /* .bnt{
+    padding: 16px;
+    border-radius: 3px;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+
+}
+
+.bnt1{
+    padding: 8px;
+    border-radius: 3px;
+    border: none;
+    display: block;
+    margin: 10px auto;
+    width: 80px;
+
+
+  }
+  .bnt1:hover{
+    background-color: aqua;
+    
+  } */
+body{
+    width: 100vh;
+    height: 100vh;
+    padding: 10px 32px;
+}
+
+  /* .parent{
+    ol{
+        background-color: blueviolet;
+    }
+    ul:first-child{
+        background-color: aqua;
+    }
+    ul:last-child{
+        background-color: cadetblue;
+        li:nth-child(2)
+        {
+            background-color: darkmagenta;
+
+
+        }
+    }
+} */
+
+/* .parent 
+
+  ul{
+    background-color: aqua;
+}
+
+
+ */
+
+ .parent{
+    display: flex;
+    /* background-color: aqua; */
+    justify-content: space-between;
+ }
+
+ .child{
+    background-color: greenyellow;
+    border: 1px solid red;
+    flex-basis: 60px;
+ }
+ #a1{
+    order:4 ;
+ }
+
