@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="formhandling.css">
+</head>
+<body>
+    <div id="parent">
+        <form action="" onsubmit="submitform(event)">
+            <label > first name:</label>
+            <input onkeydown="first(event)" type="text" name="firstname" placeholder="enter first name:"/>
+            <br>
+            <label>last name:</label>
+            <input type="text" name="lastname" placeholder="enter last name"/>
+            <br>
+            <label> age:</label>
+            <input type="number" name="age"/>
+            <br>
+            <br>
+            <label> hobbies</label>
+            <br>
+            <input type="checkbox" name="hobbies" value="webd"/><label> web development</label>
+            <input type="checkbox" name="hobbies" value="drawing"/><label> drawing</label>
+            <input type="checkbox" name="hobbies" value="gaming"/><label> gaming</label>
+            <br>
+            <br>
+            <input type="radio" name="gender" value="male"/><label> male</label>
+            <input type="radio" name="gender" value="female"/><label> female</label>
+            <br>
+            <br>
+            <!-- <button onclick="window.print()"> submit</button> -->
+            <button >submit</button>
+
+        </form>
+    </div>
+    <script src="formhandling.js"></script>
+</body>
+</html>
