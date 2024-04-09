@@ -133,6 +133,7 @@
 
 
 //higher order function
+//calback function
 
 let sum = (a,b,print) =>
 {
