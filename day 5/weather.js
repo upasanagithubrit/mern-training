@@ -2,9 +2,9 @@
 
 let fetchapi = ()=>
 {
-    fetch('https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=EyvPFvyTS2684RlAKqOUJJYR6HlZNyjy')
+    fetch(' https://weatherapi-com.p.rapidapi.com/current.json?rapidapi-key=7d0ceb0d4cmsh0de16948158e93cp10b602jsn70b39d682e0e&q=London')
     .then((res)=> res.json)
-    .then((data)=> renderui(data))
+    .then((data)=> console.log(data))
 }
 
 let renderui = (data) =>

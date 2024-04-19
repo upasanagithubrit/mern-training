@@ -1,0 +1,22 @@
+[
+    {
+        "title": "burger",
+        "price": 12,
+        "id": 1
+    },
+    {
+        "title": "coke",
+        "price": 12,
+        "id": 2
+    },
+    {
+        "title": "chips",
+        "price": 12,
+        "id": 3
+    },
+    {
+        "title": "chips",
+        "price": 12,
+        "id": 5
+    }
+]

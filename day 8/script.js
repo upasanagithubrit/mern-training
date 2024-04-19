@@ -1,58 +1,10 @@
-// const fs=require('node:fs')
-// const fs=require('fs')
-// const data= fs.readFileSync('./script2.txt',{encoding:'utf8'});  // by utf it changes into string
-
-// console.log(data)  // return buffer
-// console.log(data.toString());   // return string
-
-
-
-//write filesystem
-// const fs=require('fs')
-// fs.writeFileSync('./logs.txt','this is new file created by writefilrsync command');
-
-
-
-// console.log("start")
-// const fs=require('fs')
-// const data= fs.readFileSync('./script2.txt',{encoding:'utf8'});
-// console.log(data)
-// console.log("end") 
-////////////////////////////////////////////sync call api////////////////////////////////
-
-//promise api
-// const fspromise=require('fs/promises')
-// const pr=fspromise.readFile('./script2.txt',{encoding:'utf8'});
-// pr.then((res)=>
-// {
-//     console.log(res);
-// })
-
-
-/////////////////////////////////////////promise call api/////////////////////////////////////
-
-//callback api
-
-// const fscallback=require('fs');
-// fscallback.readFile('./script2.txt',{encoding:'utf8'},(err,data)=>
-// {
-//     console.log(data)
-
-// });
-
-///////////////////////////////////////////////callback api/////////////////////////////////
-
-
-//////////////////////////////////////server bana rahe hai/////////////////////////////////
-
-
 const http = require('http');
 const fs=require('fs')
 
 const data=fs.readFileSync('./data.json','utf8')
 // console.log(typeof(data))
 const dataobj=JSON.parse(data);
-const product= dataobj.products;
+const item= dataobj.movies;
 
 
 const htmlTemplete = `
@@ -61,23 +13,23 @@ const htmlTemplete = `
     <head>
     <style>
     Img{
-        height:80px;
-        width:80px;
+        height:100%;
+        width:100%;
     }
     p{
-        display:inline;
+        color:white;
     }
     
-        .product-card
+        .card
         {
            width:400px;
            height:350px;
             margin:20px auto;
-            border: 3px double blue;
-            border-radius:8px;
+            // border: 3px double blue;
+            // border-radius:8px;
             padding:16px;
-            background-color:orange;
-            box-shadow:2px 8px 5px red;
+            // background-color:#D6ED17FF;
+            // box-shadow:2px 8px 5px grey;
             transition: background-color 0.5s ease
             transition-property: scale;
             transition-duration: 1.5s;
@@ -100,7 +52,7 @@ const htmlTemplete = `
           line-height: 1.6;
           margin: 0;
           min-height: 100vh;
-          background-color:aqua;
+          background-color:white;
         
       }
       ul {
@@ -154,7 +106,7 @@ const htmlTemplete = `
           padding-top: .5em;
           padding-bottom: .5em;
           border: 1px solid #a2a2a2;
-          background-color: tomato;
+          background-color:aqua;
           -webkit-box-shadow:u 0px 0px 14px 0px rgba(0,0,0,0.75);
           -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
           box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
@@ -208,6 +160,59 @@ const htmlTemplete = `
         flex-wrap:wrap;
         flex-direction:row;
       }
+
+
+
+
+      /////////////flip card //////////////
+
+      body {
+        
+        font-family: 'Lily Script One';
+      }
+      
+      .card {
+       
+        perspective: 500px;
+      }
+      
+      .content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      
+        transition: transform 1s;
+        transform-style: preserve-3d;
+      }
+      
+      .card:hover .content {
+        transform: rotateY( 180deg ) ;
+        transition: transform 0.5s;
+      }
+      
+      .front,
+      .back {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: lightblue;
+        line-height: 300px;
+        color: #03446A;
+        text-align: center;
+        font-size: 30px;
+        border-radius: 5px;
+        backface-visibility: hidden;
+        box-shadow:5px 5px 5px grey;
+      }
+      
+      .back {
+        background: #03446A;
+        color: white;
+        transform: rotateY( 180deg );
+      }
+
+
         </style>
     </head>
     <body>
@@ -215,7 +220,7 @@ const htmlTemplete = `
     <h1 class="logo"><a href="#">NODE JS</a></h1>
   <ul class="main-nav">
       <li><a href="#">Home</a></li>
-      <li><a href="#">products</a></li>
+      <li><a href="#">Movies</a></li>
       <li><a href="#">about</a></li>
       <li><a href="#">Contact</a></li>
   </ul>
@@ -229,34 +234,48 @@ const htmlTemplete = `
 </footer>
     </body>
 </html>`
-const CardTemplete=`
-<div class='product-card'>
-<h1>Brand:brand</h1>
+
+
+
+// const CardTemplete=`
+// <div class='product-card'>
+
     
-<h3>Title:title</h3>
-<div class='innerdiv'>
-
-<img src=Img>
+// <h3>Title:title</h3>
+// <div class='innerdiv'>
 
 
-    <p>Description:info</p>
-    </div>
+
+
+//     <p>info</p>
+//     </div>
+// </div>
+// `;
+const CardTemplete=`<div class="card">
+<div class="content">
+  <div class="front">
+  <img src='Img'>
+  </div>
+  <div class="back">
+  <h6>Actors:title</h6>
+  
+//   <p>info</p>
+  </div>
 </div>
-`;
+</div>
+`
 
 
 
 
 
-
-
-const allCard=product.map((elem)=>
+const allCard=item.map((elem)=>
 {
     let newcard=CardTemplete;
-    newcard=newcard.replace('brand',elem.brand)
-    newcard=newcard.replace('title',elem.title)
-    newcard=newcard.replace('Img',elem.images[0])
-    newcard=newcard.replace('info',elem.description)
+    
+    newcard=newcard.replace('title',elem.actors)
+    newcard=newcard.replace('Img',elem.posterUrl)
+    // newcard=newcard.replace('info',elem.actors)
      return newcard;
 })
 
@@ -279,6 +298,6 @@ const app = http.createServer((req, res) => {
 });
 
 
-app.listen(2400, () => {
+app.listen(2002, () => {
     console.log('................server started..................')
 });

@@ -2,7 +2,7 @@ console.log(">>app started>>")
 
 let callapi= () =>
 {
-    fetch("https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=c9d643f48bed47ffb81f932d9f33b737")
+    fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=c9d643f48bed47ffb81f932d9f33b737")
 
     .then(res =>  res.json())
     .then((data)=> renderui(data));
@@ -32,7 +32,14 @@ let renderui = (data)=>
     const img= document.createElement("img")
     img.src=ar1.urlToImage
     div.appendChild(img)
+
+    const a= document.createElement("a")
+    a.href=ar1.source;
+    a.innerHTML='Read More...'
     
+    div.appendChild(a)
+    
+
     
     // div.innerHTML=ar1.title
     root.appendChild(div);

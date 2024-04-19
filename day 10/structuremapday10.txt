@@ -1,0 +1,30 @@
+--> controller
+     * productcontroller.js(fs/promises)
+          . const getproduct=()=>{...}
+          . const postproduct=()=>{...}
+          . module.exports={ getproduct,post...}
+
+     * usercontroller.js(fs/promises)
+          . const getuser=()=>{...}
+          . const postuser=()=>{...}
+          . module.exports={ getuser,post...}
+
+-->route
+    * productroute.js
+          . import express ,productcontroller
+          . const productrouter=express.Router()
+          . assigned the handlers on Router
+          . module.exports=productrouter
+
+    * userroute.js
+          . import express ,usercontroller
+          . const userrouter=express.Router()
+          . assigned the handlers on Router
+          . module.exports=userrouter      
+
+-->script
+    . import( express,fs/promises,productroute,userroute)
+    . const app = express();
+    . middleware(body parse,manual log)
+    . router assign to particular route
+    . app.listen(3100)

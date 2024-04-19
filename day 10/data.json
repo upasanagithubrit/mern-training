@@ -1,0 +1,27 @@
+[
+    {
+        "title": "chips",
+        "price": 12,
+        "id": 3
+    },
+    {
+        "title": "routercheck",
+        "price": 12,
+        "id": 5
+    },
+    {
+        "title": "burger",
+        "price": 12,
+        "id": 6
+    },
+    {
+        "title": "upasana",
+        "price": 12,
+        "id": 7
+    },
+    {
+        "title": "chaudhary",
+        "price": 12,
+        "id": 8
+    }
+]
