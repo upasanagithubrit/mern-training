@@ -3,15 +3,51 @@ const productmodel= require('../models/productsmodel')
 
 const getproduct= async(req,res)=>
 {
-    const data=await productmodel.find();
-    // console.log(typeOf(data));
-    console.log(req.url);
+    // const q=req.query; //////// query to read filters if any fropm backend
+    // console.log(q);        ////terminal pe print hoga
+    
+    // // const data=await productmodel.find(q);     ///////////postman pe show hoga 
+
+
+    // let query = productmodel.find(q)
+
+
+    // query= query.sort('price'); //////////////sort the data according to parameters-- price
+    // const data = await(query); 
+    
+    // // console.log(typeOf(data));
+
+    // console.log(req.url);
+
+
+    const {sort='price',page=1, pagesize=3 ,field='price',...q}= req.query  // pagesize aur page ham post man se bhi de sakte hai ? mark laga ke
+    //// like this -----http://localhost:2002/api/products?page=1&pagesize=2
+    //-price--- price ke alava jo bachega vo fiedld me aa jayega 
+    const sortstr= sort.split(',').join(' ');
+
+    let query=productmodel.find(q)
+    query = query.sort(sortstr);
+
+    const skip= pagesize*(page-1);    // kaha se data aayega eak page pe aur akitna data aayega depend on pagesize
+    // const limit=3;
+
+    query = query.skip(skip).limit(pagesize);
+
+    query = query.select(field)  // jitna chaiye sirf vo hi aayega 0.postman pe 
+    const products =await(query);
+
+   const totalresults = await productmodel.countDocuments();
+
     res.json({
         status:'success',
-        result:0,
+        result:products.length,
+        totalresults,
+        pagesize:pagesize,
+        page:page, 
         data:{
-            products:data,
+            products,
         }
+
     })
 }
 

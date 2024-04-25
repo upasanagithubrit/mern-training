@@ -2,11 +2,13 @@ const express= require('express')
 const test=require('./models/productsmodel.js')
 const productRouter=require('./routes/productroute.js')
 const userRouter=require('./routes/userroute.js')
+const reviewRouter=require('./routes/reviewroute.js')
 
 const app=express();
 app.use(express.json()) ////jo bhi request aayegi usse json me karke attach kar deg expresss me ///
 app.use('/api/products',productRouter);
 app.use('/api/users',userRouter)
+app.use('/api/reviews',reviewRouter)
 
 
 const mongoose=require('mongoose');

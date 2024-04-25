@@ -7,6 +7,25 @@ const productschema=mongoose.Schema({
         required:true,
 
     },
+    info: {
+        category: String,
+        brand: String,
+        ratingCount: Number,
+        ratingValue: Number,
+        stock: Number,
+        specificOffers: [
+            {
+                title: String,
+                description: String,
+            }
+        ],
+        amazonServices: [
+            {
+                title: String,
+                description: String,
+            }
+        ]
+    },
    
     price:{
         type:Number,
