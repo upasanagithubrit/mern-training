@@ -11,7 +11,7 @@ const reviewschema=mongoose.Schema({
 
     },
     review:{
-        type:String,
+        type:String,    
     },
 
     
